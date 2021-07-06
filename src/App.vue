@@ -1,8 +1,4 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
   <router-view/>
 </template>
 
@@ -11,8 +7,6 @@
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
 }
 
 #nav {
@@ -26,5 +20,58 @@
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #08454E;
+  font-family: 'Rubik', sans-serif;
+}
+.container {
+  background-color: white;
+  width: 1200px;
+  margin: 0 auto;
+  overflow: auto;
+  min-height: 1200px;
+  padding: 60px;
+}
+.btn {
+  display: inline-block;
+  background: #258FAF;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: inherit;
+}
+.btn:focus {
+  outline: none;
+}
+.btn:active {
+  transform: scale(0.98);
+}
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+.danger{
+  color: red;
+}
+
+h5{
+  font-size: 18px;
+  }
+
+.contact-input-fields{
+  height: 80px;
+  margin-top: 30px;
+  padding-left: 30px;
 }
 </style>
