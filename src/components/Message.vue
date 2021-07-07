@@ -1,11 +1,7 @@
 <template>
-    <div class="contact-input-fields">
+    <div class="contact-input-fields" id="message-box">
         <h5>Your message <span class="danger">*</span></h5>
-        <form action="">
-            <input type="text">
-            <br><br>
-            <button class="btn">Send your message</button>
-        </form>
+        <input type="text">     
     </div>
     
     
@@ -30,6 +26,10 @@ export default{
         width: 555px;
         height: 200px;
         padding-left: 10px;
+    }
+
+    #message-box{
+        height: auto;
     }
     
 </style>

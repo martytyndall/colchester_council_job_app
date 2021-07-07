@@ -1,6 +1,6 @@
 <template>
     <div class="contact-input-fields">
-        <h5>Telephone number<span class="danger">*</span></h5>
+        <h5>Telephone number<span class="danger"> *</span></h5>
         <input type="text" placeholder="+44">
     </div>
     

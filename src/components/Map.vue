@@ -7,8 +7,11 @@
   >
     <Marker :options="{ position: center }" />
   </GoogleMap>
-  <h5>Find me</h5>
-  <div class="address">{{ address }}</div>
+  <div class="findMe-container">
+      <h5>Find me</h5>
+      <div class="address">{{ address }}</div>
+  </div>
+  
 </template>
 
 <script>
@@ -31,11 +34,17 @@ export default defineComponent({
 
 <style scoped>
 h5 {
-    padding-left: 50px;
+    padding-left: 10px;
     margin-top: 30px;
 }
 
 .address{
-    padding-left: 50px;
+    padding-left: 10px;
+}
+
+.findMe-container{
+    height: 80px;
+    border-left: 5px solid grey;
+    margin-left: 50px;
 }
 </style>
