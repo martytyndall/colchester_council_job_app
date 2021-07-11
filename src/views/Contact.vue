@@ -2,7 +2,7 @@
   <div class="contact-page container">
     <Header title="Marty Tyndall" heading="Send me a message" />
     <ContactForm />
-    <AsideBox />
+    <ContactAsideBox />
 
 
   </div>
@@ -13,14 +13,14 @@
 // @ is an alias to /src
 import Header from '@/components/Header.vue'
 import ContactForm from '@/components/ContactForm.vue'
-import AsideBox from '@/components/AsideBox.vue'
+import ContactAsideBox from '@/components/ContactAsideBox.vue'
 
 export default {
   name: 'Contact',
   components: {
     Header,
     ContactForm,
-    AsideBox,
+    ContactAsideBox,
     },
 
 }
@@ -31,7 +31,7 @@ export default {
 @media screen and (max-width: 592px) {
   .container{
     height: 2500px;
-  }  
+  }
 }
     
 </style>

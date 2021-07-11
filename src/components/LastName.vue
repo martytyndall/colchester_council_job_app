@@ -1,7 +1,7 @@
 <template>
     <div class="lastname-container">
         <h5>Last name <span class="danger">*</span></h5>
-        <input type="text">
+        <input type="text" required>
     </div>
     
     
@@ -23,7 +23,7 @@ export default{
 <style scoped>
     .lastname-container{
         float: right;
-        padding-right: 30px;
+        padding-left: 15px;
     }
     
     .lastname-container input{

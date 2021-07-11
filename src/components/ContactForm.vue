@@ -1,8 +1,11 @@
 <template>
 
 <div class="contact-container">
+    
     <form action="/">
         <div class="contact-input-fields">
+            <h5 class="danger"> * required field</h5>
+            <br>
             <FirstName />
             <LastName />
         </div>
@@ -55,8 +58,9 @@ var formValidated = false;
     .contact-container{
         background-color: #F2F2F2;
         width: 615px;
-        height: 1115px;
+        height: auto;
         float: left;
+        padding-bottom: 10px;
     }
 
     .name-container{

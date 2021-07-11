@@ -1,61 +1,116 @@
 <template>
-    <div class="contact-input-fields" id="address-input">
+    <div class="contact-input-fields" >
+
+
         <h1>Do you live in Colchester?<span class="danger"> *</span></h1>
-        <form action="" class="address-form" @change="radioChecked()">
-            <input type="radio" name="choice" id="yes" value="yes" checked="checked"><h5>Yes</h5>
-            <input type="radio" name="choice" id="no" value="no"><h5>No</h5>
-        </form>
-        <br><br><br><br>
+        <div class="radios" >
+            <input type="radio" name="choice" id="yes" value="yes" checked="checked" @change="radioChecked(0)"><h5>Yes</h5>
+            <input type="radio" name="choice" id="no" value="no" @change="radioChecked(1)"><h5>No</h5>
+        </div>
+
+
+        <br><br><br><br>        
         <h1>What is your home address?<span class="danger"> *</span></h1>
         <br>
-        <form action="" class="postcode-form" id="postcode-form">
+
+
+        <div class="postcode-form" id="postcode-form">
             <h5>Postcode <span class="danger"> *</span></h5>
-            <input class="postcode-input" type="text" placeholder="CO3 3WG">
-            <br><br>
-            <button class="btn">Find Address</button>
-        </form>
-        <form action="" class="address-input" id="address-input">
+            <form @submit.prevent="postcodeData" method="post">
+                <input class="postcode-input" type="text" placeholder="CO3 3WG" name="input" v-model="postcode.input" required>
+                <br><br>
+                <button type="submit" class="btn">Find Address</button>
+            </form>            
+        </div>
+
+        <div class="hidden" id="your-address">
+            <h5>Please select your address from the drop down list <span class="danger"> *</span> </h5>
+            <select name="" id="address-list"/>
+        </div>
+        
+
+
+        <div class="address-form hidden" id="address-form">
             <h5>Address line 1 <span class="danger"> *</span></h5>
-            <input type="text">
-            <h5>Address line 2 <span class="danger"> *</span></h5>
+            <input type="text" required>
+            <h5>Address line 2</h5>
             <input type="text">
             <h5>Town/City <span class="danger"> *</span></h5>
-            <input type="text">
+            <input type="text" required>
             <h5>Country <span class="danger"> *</span></h5>
-            <input type="text">
+            <input type="text" required>
             <h5>Postcode <span class="danger"> *</span></h5>
-            <input type="text">
-        </form>
+            <input type="text" required>
+        </div>
     </div>
-    
-    
+
+
+
 </template>
 
 <script>
+import axios from 'axios'
+import { bus } from '@/main'
+
+
 
 export default{
     name: 'Address',
-    methods: {
-        radioChecked(){
-            const rbs = document.querySelectorAll('input[name="choice"]');
-            let selectedValue;
-            for (var rb of rbs) {
-                if (rb.checked) {
-                    selectedValue = rb.value;
-                }
+    components: {
+    },
 
-                if(selectedValue == "yes"){
-                document.getElementById("postcode-form").classList.add("display");
-                document.getElementById("address-input").classList.add("hidden");
-            } else {
-                document.getElementById("postcode-form").classList.add("hidden");
-                document.getElementById("address-input").classList.add("display");
-            }
-            }
-            
+    data(){
+        return{
+            postcode:{
+                input:null,
+            },
             
         }
-    }
+    },
+    methods: {
+        radioChecked(x){
+            if(x==0){
+                document.getElementById("postcode-form").classList.remove("hidden");
+                document.getElementById("address-form").classList.add("hidden");                
+            } else {
+                document.getElementById("postcode-form").classList.add("hidden");
+                document.getElementById("address-form").classList.remove("hidden");     
+            }            
+        },
+
+        postcodeData(e){
+            e.preventDefault();
+
+            const postCode = this.postcode.input;
+            const postCodeLength = postCode.length;
+            const indexToSplit = postCodeLength - 3;
+
+            let postCodeStart = postCode.substring(0, indexToSplit);
+            let postCodeEnd = postCode.substring(indexToSplit);
+            postCodeStart = postCodeStart.trim();
+            postCodeEnd = postCodeEnd.trim();
+
+            const formattedPostCode = postCodeStart + " " + postCodeEnd;
+
+
+            axios.get("https://interviewtask.azurewebsites.net/api/address?postcode=" + formattedPostCode)
+            .then((response) => {                       
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            })
+
+            document.getElementById("postcode-form").classList.add("hidden");
+            document.getElementById("your-address").classList.remove("hidden");
+        },
+
+        
+
+
+       
+    },
+
 }
 
 
@@ -70,24 +125,44 @@ export default{
         height: auto;
     }
         
-    .address-form *{
+    .radios *{
         width: 40px;
         height: 40px;
         float: left;        
     }
 
-    .address-form{
+    .radios{
         margin-top: 20px;
         width: 100%;
     }
 
-    .address-form h5{
+    .postcode-form{
+        height: auto;
+        float: left;
+        width: 100%;
+    }
+
+    .address-form{
+        width: 100%;
+        height: auto;
+        /* margin-top: 20px; */
+    }
+
+    .radios h5{
+        margin-bottom: 5px;
         transform: translateY(25%);
-        margin-left: 10px;
+        margin-left: 5px;
+        margin-right: 5px;
+        float: left;
     }
 
     .address-form input{
-        margin-left: 10px;
+        width: 555px;
+        height: 40px;
+    }
+
+    .address-form h5{
+        margin-top: 10px;
     }
 
     .postcode-input{

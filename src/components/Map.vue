@@ -9,14 +9,19 @@
   </GoogleMap>
   <div class="findMe-container">
       <h5>Find me</h5>
-      <div class="address">{{ address }}</div>
+      <div class="address">
+        <h5> {{ postcode }} </h5>
+      </div>
   </div>
   
 </template>
 
 <script>
+import axios from 'axios'
 import { defineComponent } from 'vue'
 import { GoogleMap, Marker } from 'vue3-google-map'
+
+
 
 export default defineComponent({
   components: { GoogleMap, Marker },
@@ -27,9 +32,14 @@ export default defineComponent({
   },
 
   props: {
+    postcode: String
       
-  }
+  },
+
+  
 })
+
+
 </script>
 
 <style scoped>

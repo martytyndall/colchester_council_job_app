@@ -1,7 +1,7 @@
 <template>
     <div class="contact-input-fields">
         <h5>Email address<span class="danger"> *</span></h5>
-        <input type="email" placeholder="e.g joe.bloggs@gmail.com">
+        <input type="email" placeholder="e.g joe.bloggs@gmail.com" required>
     </div>
     
     
@@ -21,6 +21,8 @@ export default{
 </script>
 
 <style scoped>
+
+    
       
     input{
         width: 555px;

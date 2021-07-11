@@ -1,7 +1,7 @@
 <template>
     <div class="contact-input-fields">
         <h5>Date of birth</h5>
-        <input type="date" class="" id="date" @blur="validateDOB()" placeholder="eg. 20/01/2000">                
+        <input type="date" class="" id="date" @blur="validateDOB()" placeholder="eg. 20/01/2000" required>                
     </div>   
 </template>
 

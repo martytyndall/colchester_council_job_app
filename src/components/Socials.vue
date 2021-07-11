@@ -39,4 +39,8 @@ export default{
     .fa-youtube{
       color: #FF0000;
     }
+
+  .fa{
+    background-color: white;
+  }
 </style>

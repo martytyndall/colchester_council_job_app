@@ -1,7 +1,7 @@
 <template>
     <div class="firstname-container">
         <h5>First name <span class="danger">*</span></h5>
-        <input type="text">
+        <input type="text" required>
     </div>
     
     

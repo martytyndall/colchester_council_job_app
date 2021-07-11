@@ -3,6 +3,8 @@
 </template>
 
 <style>
+
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -40,26 +42,20 @@ body {
   padding: 60px;
 }
 .btn {
-  display: inline-block;
   background: #258FAF;
   color: #fff;
   border: none;
+  border-bottom: 4px solid #105D74;
   padding: 10px 20px;
   cursor: pointer;
   text-decoration: none;
   font-size: 15px;
-  font-family: inherit;
 }
-.btn:focus {
-  outline: none;
+
+.btn:hover {
+  transform: scale(1.05);
 }
-.btn:active {
-  transform: scale(0.98);
-}
-.btn-block {
-  display: block;
-  width: 100%;
-}
+
 
 .danger{
   color: red;
@@ -70,7 +66,8 @@ h5{
   }
 
 .contact-input-fields{
-  height: 80px;
+  float: left;
+  height: auto;
   margin-top: 30px;
   padding-left: 30px;
 }

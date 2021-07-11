@@ -1,7 +1,8 @@
 <template>
     <div class="contact-input-fields" id="message-box">
         <h5>Your message <span class="danger">*</span></h5>
-        <input type="text">     
+        <textarea name="message-box" id="message-box" cols="65" rows="10" required></textarea>
+        <br><br>
     </div>
     
     
@@ -22,14 +23,5 @@ export default{
 
 <style scoped>
     
-    input{
-        width: 555px;
-        height: 200px;
-        padding-left: 10px;
-    }
-
-    #message-box{
-        height: auto;
-    }
     
 </style>

@@ -14,7 +14,7 @@ import Socials from '@/components/Socials'
 
 
 export default {
-  name: 'AsideBox',
+  name: 'ContactAsideBox',
   components: {
     Map,
     Socials,
