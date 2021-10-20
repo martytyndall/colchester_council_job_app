@@ -1,2 +1,2 @@
 # Redirects from what the browser requests to what we serve
-http://localhost:8080/contact   https://confident-easley-ab42eb.netlify.app/contact
+/Contact   https://confident-easley-ab42eb.netlify.app/contact
