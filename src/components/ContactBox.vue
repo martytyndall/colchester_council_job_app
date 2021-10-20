@@ -8,7 +8,7 @@
           
           <div class="inner-container-right">
             <h5>Send me a message using the contact form I created</h5>
-            <a href="http://localhost:8080/contact">Get in touch</a>
+            <a href="\Contact">Get in touch</a>
           </div>
           
         
